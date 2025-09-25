@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, Papel ou Tesoura</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Pedra, Papel ou Tesoura</h1>
+    <button id="sortearBtn">Sortear Imagem</button>
+    <div id="resultado">
+        <img id="imagemResultado" src="" alt="" style="display:none;">
+    </div>
+
+    <script>
+        const imagens = [
+            'imagens/pedra.png',
+            'imagens/papel.png',
+            'imagens/tesoura.png'
+        ];
+
+        const btn = document.getElementById('sortearBtn');
+        const imgResultado = document.getElementById('imagemResultado');
+
+        btn.addEventListener('click', () => {
+            const index = Math.floor(Math.random() * imagens.length);
+            imgResultado.src = imagens[index];
+            imgResultado.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
