@@ -59,14 +59,15 @@
   <h1>Pedra, Papel ou Tesoura</h1>
   <button id="botaoSortear">Sortear Imagem</button>
   <div>
-    <img id="imagemResultado" src="" alt="" />
+    <img id="imagemResultado" src="" alt="Resultado" />
   </div>
 
   <script>
+    // Caminho das imagens na pasta "imagens"
     const imagens = [
-      'pedra.png', // Coloque o caminho correto das imagens no GitHub
-      'papel.png',
-      'tesoura.png'
+      'imagens/pedra.png',
+      'imagens/papel.png',
+      'imagens/tesoura.png'
     ];
 
     const botao = document.getElementById('botaoSortear');
@@ -75,7 +76,7 @@
     botao.addEventListener('click', () => {
       const indice = Math.floor(Math.random() * imagens.length);
       resultado.src = imagens[indice];
-      resultado.alt = imagens[indice].split('.')[0];
+      resultado.alt = imagens[indice].split('/').pop().split('.')[0]; // nome da imagem sem extensão
     });
   </script>
 </body>
