@@ -1,0 +1,8 @@
+pedra-papel-tesoura/
+│
+├─ index.html
+├─ style.css
+└─ imagens/
+    ├─ pedra.png
+    ├─ papel.png
+    └─ tesoura.png
