@@ -1,33 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedra, Papel ou Tesoura</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedra, Papel ou Tesoura</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    #botaoSortear {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      border: none;
+      color: white;
+      padding: 15px 25px;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    #botaoSortear:hover {
+      transform: scale(1.05);
+    }
+
+    #imagemResultado {
+      margin-top: 20px;
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    /* Responsividade para telas muito pequenas */
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+      #botaoSortear {
+        padding: 12px 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Pedra, Papel ou Tesoura</h1>
-    <button id="sortearBtn">Sortear Imagem</button>
-    <div id="resultado">
-        <img id="imagemResultado" src="" alt="" style="display:none;">
-    </div>
+  <h1>Pedra, Papel ou Tesoura</h1>
+  <button id="botaoSortear">Sortear Imagem</button>
+  <div>
+    <img id="imagemResultado" src="" alt="" />
+  </div>
 
-    <script>
-        const imagens = [
-            'imagens/pedra.png',
-            'imagens/papel.png',
-            'imagens/tesoura.png'
-        ];
+  <script>
+    const imagens = [
+      'pedra.png', // Coloque o caminho correto das imagens no GitHub
+      'papel.png',
+      'tesoura.png'
+    ];
 
-        const btn = document.getElementById('sortearBtn');
-        const imgResultado = document.getElementById('imagemResultado');
+    const botao = document.getElementById('botaoSortear');
+    const resultado = document.getElementById('imagemResultado');
 
-        btn.addEventListener('click', () => {
-            const index = Math.floor(Math.random() * imagens.length);
-            imgResultado.src = imagens[index];
-            imgResultado.style.display = 'block';
-        });
-    </script>
+    botao.addEventListener('click', () => {
+      const indice = Math.floor(Math.random() * imagens.length);
+      resultado.src = imagens[indice];
+      resultado.alt = imagens[indice].split('.')[0];
+    });
+  </script>
 </body>
 </html>
