@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedra, Papel ou Tesoura</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    img {
+      margin-top: 20px;
+      width: 200px;
+      height: auto;
+      border: 2px solid #000;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pedra, Papel ou Tesoura</h1>
+  <button id="sorteioBtn">Sorteio</button>
+  <div id="resultado"></div>
+
+  <script>
+    const escolhas = [
+      { nome: 'Pedra', img: 'pedra.png' },
+      { nome: 'Papel', img: 'papel.png' },
+      { nome: 'Tesoura', img: 'tesoura.png' }
+    ];
+
+    const button = document.getElementById('sorteioBtn');
+    const resultado = document.getElementById('resultado');
+
+    button.addEventListener('click', () => {
+      const escolha = escolhas[Math.floor(Math.random() * escolhas.length)];
+      resultado.innerHTML = `
+        <p>${escolha.nome}</p>
+        <img src="${escolha.img}" alt="${escolha.nome}">
+      `;
+    });
+  </script>
+</body>
+</html>
